@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:42:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/10 23:21:27 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/10 23:55:18 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ void	ft_hexdump_c(int fd)
 	tmp = (char*)malloc(sizeof(char) * (BUFF_S));
 	while (read(fd, tmp, BUFF_S) != 0)
 	{
+		if (*tmp == '\t' || *tmp == '\n')
+			*tmp = '.';
+		ft_putchar('|');
 		write(1, tmp, BUFF_S);
+		ft_putchar('|');
 		ft_putchar('\n');
 	}
 
