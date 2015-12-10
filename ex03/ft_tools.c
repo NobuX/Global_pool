@@ -6,11 +6,17 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:04:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/10 23:24:17 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/11 00:12:35 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tools.h"
+
+void	ft_putstr(char *str)
+{
+	write(1, str, ft_strlen(str));
+
+}
 
 void	ft_putchar(char c)
 {
