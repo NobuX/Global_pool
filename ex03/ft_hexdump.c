@@ -6,11 +6,26 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:42:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/10 18:42:21 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/10 19:56:11 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tools.h"
+
+void	ft_hexdump_c(int fd)
+{
+	char	buff[BUFF_S];
+	char	*tmp;
+	int		ret;
+
+	tmp = (char*)malloc(sizeof(*tmp) * (BUFF_S));
+	while ((ret = read(fd, buff, BUFF_S)))
+	{
+		tmp = buff;
+		ft_putstr(tmp);
+	}
+
+}
 
 int		main(int argc, char **argv)
 {
@@ -18,7 +33,7 @@ int		main(int argc, char **argv)
 	int		i;
 
 	i = 1;
-	if (ft_strcmp(argc[2], "-C") != 0)
+	if (ft_strcmp(argv[2], "-C") != 0)
 	{
 		while (i++ < argc)
 		{
