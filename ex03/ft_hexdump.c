@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:42:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/11 00:13:52 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/11 00:35:55 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ void	ft_hexdump_c(int fd)
 		{
 			if (tmp[i] == '\t' || tmp[i] == '\n')
 				tmp[i] = '.';
+			i++;
 		}
 		ft_putchar('|');
 		ft_putstr(tmp);
+		tmp = NULL;
 		ft_putchar('|');
 		ft_putchar('\n');
 	}
