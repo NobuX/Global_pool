@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:42:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/10 23:03:48 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/10 23:21:27 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_hexdump_c(int fd)
 	tmp = (char*)malloc(sizeof(char) * (BUFF_S));
 	while (read(fd, tmp, BUFF_S) != 0)
 	{
-		ft_putstr(tmp);
+		write(1, tmp, BUFF_S);
 		ft_putchar('\n');
 	}
 
@@ -31,7 +31,7 @@ int		main(int argc, char **argv)
 	int		i;
 
 	i = 1;
-/*	if (ft_strcmp(argv[2], "-C") != 0)
+/*	if (ft_strcmp(argv[1], "-C") != 0)
 	{
 		while (i++ < argc)
 		{

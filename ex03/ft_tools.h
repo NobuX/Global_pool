@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:04:27 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/10 19:48:33 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/10 23:24:26 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 # define BUFF_S 16
 
-void	ft_putstr(char *str);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_putchar(char c);
 int		ft_strlen(char *str);
