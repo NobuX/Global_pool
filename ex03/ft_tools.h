@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:04:27 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/11 00:13:03 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/14 15:17:59 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdlib.h>
 
 # define BUFF_S 16
+# define BASE_16 "0123456789abcdef"
+# define BASE_10 "0123456789"
 
 void	ft_putstr(char *str);
 int		ft_strcmp(char *s1, char *s2);
