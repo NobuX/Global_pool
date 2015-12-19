@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:42:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/19 00:32:02 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/19 01:12:20 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	ft_third_coll(char* tmp)
 	ft_putchar('\n');
 }
 
-int		ft_global_size(char *argv)
+int		ft_global_size(int i, char **argv)
 {
 	int		fd;
 	int		size;
 	char	buf;
 
-	fd = open(argv, O_RDONLY);
+	fd = open(argv[i], O_RDONLY);
 	size = 0;
 	while (read(fd, &buf, 1))
 		size++;
@@ -74,7 +74,7 @@ int		ft_hexdump_c(int fd, int l, int t)
 
 	tmp = (char*)malloc(sizeof(char) * (BUFF_S + 1));
 	tmp[BUFF_S] = '\0';
-	while ((read(fd, tmp, BUFF_S) != 0) && (l < t - (t % 16)))
+	while ((read(fd, tmp, BUFF_S) != 0) && (l < t - (t % 16) == 0))
 	{
 			ft_first_coll(l);
 			ft_putnbr_base(l, BASE_16);
@@ -103,7 +103,6 @@ int		main(int argc, char **argv)
 
 	l = 0;
 	i = 1;
-	t = ft_global_size(argv[i]);
 /*	if (ft_strcmp(argv[1], "-C") != 0)
 	{
 		while (i++ < argc)
@@ -121,6 +120,7 @@ int		main(int argc, char **argv)
 		while (++i < argc)
 		{
 			fd = open(argv[i], O_RDONLY);
+			t = ft_global_size(i, &argv[i]);
 			if (fd >= 0)
 			{
 				l = ft_hexdump_c(fd, l, t);
@@ -131,7 +131,7 @@ int		main(int argc, char **argv)
 					l = 0;
 					while (++i < argc)
 					{
-						l += ft_global_size(argv[i]);
+						l += ft_global_size(i, &argv[i]);
 						if (!(argv[i + 1]))
 						{
 							ft_first_coll(l);
