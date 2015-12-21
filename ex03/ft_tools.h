@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:04:27 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/14 15:17:59 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/21 17:05:21 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ int		ft_strcmp(char *s1, char *s2);
 void	ft_putchar(char c);
 int		ft_strlen(char *str);
 void	ft_putnbr_base(int nbr, char *base);
+
+void	ft_first_coll(int l);
+void	ft_put_ascii_code(char *tmp, int i);
+void	ft_third_coll(char *tmp);
+int		ft_global_size(char *argv);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:42:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/21 19:49:45 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/21 17:51:19 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,53 +39,17 @@ int		ft_hexdump_c(int fd, int l, int t)
 	return (l);
 }
 
-int		ft_main_hexdump_c(int i, int l, int t, int argc, char **argv)
+int		ft_main_hexdump_c(
 {
 	int		fd;
-	int		g_error;
-
-	g_error = 0;
-	while (++i < argc)
-	{
-		fd = open(argv[i], O_RDONLY);
-		if (fd < 0)
-		{
-			ft_putstr("hexdump: ");
-			ft_putstr(argv[i]);
-			ft_putstr(": No such file or directory\n");
-			g_error++;
-		}
-		else
-		{
-			t += ft_global_size(argv[i]);
-			l = ft_hexdump_c(fd, l, t);
-			close(fd);
-			if (!(argv[i + 1]))
-			{
-				i = 1;
-				l = 0;
-				while (++i < argc)
-				{
-					l += ft_global_size(argv[i]);
-					if (!(argv[i + 1]))
-					{
-						ft_first_coll(l);
-						ft_putnbr_base(l, BASE_16);
-						ft_putchar('\n');
-					}
-				}
-			}
-		}
-	}
-	return (g_error);
 }
 
 int		main(int argc, char **argv)
 {
+	int		fd;
 	int		i;
 	int		l;
 	int		t;
-	int		g_error;
 
 	l = 0;
 	i = 1;
@@ -104,12 +68,33 @@ int		main(int argc, char **argv)
 	}
 	else
 	{*/
-	g_error = ft_main_hexdump_c(i, l, t, argc, argv);
-	if ((g_error + 2) == argc)
-	{
-		ft_putstr("hexdump: ");
-		ft_putstr(argv[(g_error + 1)]);
-		ft_putstr(": Bad file descriptor\n");
-	}
+		while (++i < argc)
+		{
+			t += ft_global_size(argv[i]);
+			fd = open(argv[i], O_RDONLY);
+			if (fd >= 0)
+			{
+				l = ft_hexdump_c(fd, l, t);
+				close(fd);
+				if (!(argv[i + 1]))
+				{
+					i = 1;
+					l = 0;
+					while (++i < argc)
+					{
+						l += ft_global_size(argv[i]);
+						if (!(argv[i + 1]))
+						{
+							ft_first_coll(l);
+							ft_putnbr_base(l, BASE_16);
+							ft_putchar('\n');
+						}
+					}
+				}
+			}
+			else
+				return (0);
+		}
+//	}
 	return (0);
 }

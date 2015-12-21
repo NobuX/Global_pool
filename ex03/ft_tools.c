@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:04:13 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/11 00:12:35 by pcarre           ###   ########.fr       */
+/*   Updated: 2015/12/21 17:05:45 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_putstr(char *str)
 {
 	write(1, str, ft_strlen(str));
-
 }
 
 void	ft_putchar(char c)
