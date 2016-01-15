@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/21 16:50:05 by pcarre            #+#    #+#             */
-/*   Updated: 2015/12/21 17:06:18 by pcarre           ###   ########.fr       */
+/*   Updated: 2016/01/14 17:24:11 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	ft_put_ascii_code(char *tmp, int i)
 	}
 }
 
-void	ft_third_coll(char *tmp)
+void	ft_third_coll(char *str)
 {
 	ft_putchar(' ');
 	ft_putchar('|');
-	ft_putstr(tmp);
+	ft_putstr(str);
 	ft_putchar('|');
 	ft_putchar('\n');
 }
