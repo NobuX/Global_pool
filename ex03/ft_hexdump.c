@@ -6,7 +6,7 @@
 /*   By: pcarre <pcarre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:42:13 by pcarre            #+#    #+#             */
-/*   Updated: 2016/01/14 17:24:44 by pcarre           ###   ########.fr       */
+/*   Updated: 2016/01/15 16:38:34 by pcarre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		ft_hexdump_c(int fd, int l, int f_s)
 {
 	char	*tmp;
-	char	*end_line;
 	int		i;
 	
 	tmp = (char*)malloc(sizeof(char) * (BUFF_S + 1));
@@ -37,6 +36,14 @@ int		ft_hexdump_c(int fd, int l, int f_s)
 		l += 16;
 		ft_third_coll(tmp);
 	}
+	return (l);
+}
+
+int		ft_last_line_c(int fd, int l, int f_s)
+{
+	char	*end_line;
+	int		i;
+
 	end_line = (char*)malloc(sizeof(char) * ((f_s % 16) + 1));
 	end_line[(f_s % 16)] = '\0';
 	while ((read(fd, end_line, 1) != 0) && (l < f_s))
@@ -79,6 +86,7 @@ int		ft_main_hexdump_c(int i, int l, int f_s, int argc, char **argv)
 		{
 			f_s += ft_global_size(argv[i]);
 			l = ft_hexdump_c(fd, l, f_s);
+			l = ft_last_line_c(fd, l ,f_s);
 			close(fd);
 			if (!(argv[i + 1]))
 			{
